@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1496785435 source:c:\users\juliana\documents\bsi2016-1\ed2\test1\heap.c
+	"heap.h"
+	<string.h>
+
+1496784951 c:\users\juliana\documents\bsi2016-1\ed2\test1\heap.h
+	<stdio.h>
+	<stdlib.h>
+
+1496784945 source:c:\users\juliana\documents\bsi2016-1\ed2\test1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"heap.h"
+

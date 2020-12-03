@@ -1,0 +1,514 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package trabalho.um.distribuidos;
+
+import java.io.IOException;
+import java.net.* ;
+import java.util.* ;
+
+public class Pers {
+	public static void main(String argv[]) throws Exception
+	{
+		final Processo processo = new Processo();
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Ola!");
+		System.out.println("Vamos comecar:");
+		System.out.println("Entrando no multicast...");
+		MulticastSocket multicast = new MulticastSocket(processo.multicastPORT);
+		processo.group  = InetAddress.getByName(processo.multicastAddres);
+		multicast.joinGroup(processo.group);
+		// Comeca a escutar multicast
+		Thread listenerThread = new Thread(){
+			@Override
+			public void run(){
+				processo.listenMulticast(multicast);
+			}
+		};
+		listenerThread.start();
+		// Manda mensagem de entrada no multicast
+		processo.enviaMARCO(multicast);
+		System.out.println("Entramos!");
+		// Esperando para comecar algoritmo
+		System.out.println("Aguardando numero minimo de usuarios: " + processo.minUsuarios);
+                //processo.definePrioridade(processo);
+		while( processo.membros.size() < processo.minUsuarios ){
+			System.out.println("Aguardando.... Numero de usuarios: " + processo.membros.size() + " de " + processo.minUsuarios);
+			Thread.sleep(2000);
+                        if(processo.membros.size() == 1)
+                        {
+                            processo.prioridade=1;
+                        }
+                        else if (processo.membros.size() > 1 && processo.prioridade == 0 ){
+                            processo.prioridade = 2;
+                        }
+		}boolean running = true;
+		System.out.println("Temos o minimo de usuarios!");
+		// Comecando algoritmo
+                while(running) {
+			// Se o processo entrou em TIMEOUT
+			// reinicia a lista do multicast
+			if(processo.isTimeOUT()){
+				System.out.println("TIMEOUT!");
+				System.out.println("Redefinindo lista...");
+				processo.reiniciarLista(multicast);
+				continue;
+			}
+			Thread.sleep(2000);
+			System.out.println("Status atual");
+			System.out.println("Recurso 1: " + processo.state1);
+			System.out.println("Recurso 2: " + processo.state2);
+			System.out.println("O que deseja fazer?");
+			System.out.println("1 - Acessar recurso 1");
+			System.out.println("2 - Liberar recurso 1");
+			System.out.println("3 - Acessar recurso 2");
+			System.out.println("4 - Liberar recurso 2");
+			System.out.println("5 - Sair");
+			int opt = Integer.parseInt(scanner.nextLine());
+			switch(opt) {
+				case 1:
+					// Se o recurso ja foi requisitado ou esta sendo usado
+					// nao pode requisitar novamente
+					if(processo.state1 != Constantes.Estados.RELEASED){
+						System.out.println("Nao eh possivel solicitar este recurso atualmente");
+						System.out.println("Verifique o status para este recurso e tente novamente");
+						break;
+					}
+					// Envia o pedido para usar o recurso 1
+					processo.enviaREQUEST(Constantes.Recursos.Recurso1, multicast);
+					System.out.println("Aguardando respostas dos outros processos!");
+					break;
+				case 2:
+					// Se o processo nao requisitou esse recurso
+					// nao pode liberar ele
+					if(processo.state1 == Constantes.Estados.RELEASED){
+						System.out.println("Nao eh possivel liberar este recurso atualmente");
+						System.out.println("Verifique o status para este recurso e tente novamente");
+						break;
+					}
+					// Libera o recurso
+					if(processo.liberarRecurso(1)){
+						System.out.println("Recurso liberado com sucesso!");
+					} else {
+						System.out.println("Nao foi possivel liberar o recurso");
+					}
+					break;
+				case 3:
+					// Se o recurso ja foi requisitado ou esta sendo usado
+					// nao pode requisitar novamente
+					if(processo.state2 != Constantes.Estados.RELEASED){
+						System.out.println("Nao eh possivel solicitar este recurso atualmente");
+						System.out.println("Verifique o status para este recurso e tente novamente");
+						break;
+					}
+					// Envia o pedido para usar o recurso 2
+					processo.enviaREQUEST(Constantes.Recursos.Recurso2, multicast);
+					System.out.println("Aguardando respostas dos outros processos!");
+					break;
+				case 4:
+					// Se o processo nao requisitou esse recurso
+					// nao pode liberar ele
+					if(processo.state2 == Constantes.Estados.RELEASED){
+						System.out.println("Nao eh possivel liberar este recurso atualmente");
+						System.out.println("Verifique o status para este recurso e tente novamente");
+						break;
+					}
+					// Libera o recurso
+					if(processo.liberarRecurso(2)){
+						System.out.println("Recurso liberado com sucesso!");
+					} else {
+						System.out.println("Nao foi possivel liberar o recurso");
+					}
+
+					break;
+				// Para a execucao
+				case 5:
+					running = false;
+					break;
+				default:
+					System.out.println("Opcao invalida!");
+					break;
+			}
+		}
+                while(running)  
+                {
+                }
+                
+		// Fim
+		System.out.println("Encerrando processo...");
+		processo.running = false;
+		multicast.close();
+		scanner.close();
+		System.out.println("Tchau!");
+	}
+
+    static void main() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
+
+final class Processo extends Constantes {
+	public String multicastAddres = "230.0.0.0";
+	public int multicastPORT = 6789;
+	public int minUsuarios = 2;
+	public InetAddress group;
+	public String id = Integ	er.toString(new Random().nextInt());
+	final static String CRLF = ",";
+	public ArrayList<String> membros = new ArrayList<String>();
+	public boolean running = true;
+	public String state1 = Estados.RELEASED;
+	private int checks1 = 0;
+	public String state2 = Estados.RELEASED;
+	private int checks2 = 0;
+	public long timeStamp1;
+	public long timeStamp2;
+	public long deltaT = 5000;
+        public int  prioridade = 0;
+        public int  mestreAtual;
+	// Funcao para escutar o multicast
+	public void listenMulticast(MulticastSocket multicast){
+		try{
+			//System.out.println("Ouvindo multicast");
+			while(this.running) {
+				// Aguardando conexoes
+				byte[] buffer = new byte[10*1024];
+                                DatagramPacket data = new DatagramPacket(buffer, buffer.length);
+				multicast.receive(data);
+				//System.out.println("Chegou alguma coisa!");
+				String linha = new String(buffer, 0, data.getLength());
+				//System.out.println(linha);
+				String[] mensagem = linha.split(CRLF);
+				// Trata a mensagem
+				switch(mensagem[0]){
+					// Novo membro no multicast
+					case Metodos.MARCO:
+						this.respondeMARCO(mensagem, multicast);
+						break;
+					// Resposta para entrada no multicast
+					case Metodos.POLLO:
+						this.trataPOLLO(mensagem, multicast);
+						break;
+					// Novo pedido de acesso a SC
+					case Metodos.REQUEST:
+						this.respondeREQUEST(mensagem, multicast);
+						break;
+					case Metodos.RESPONSE:
+						this.trataRESPONSE(mensagem);
+						break;
+					default:
+						//System.out.println("Metodo desconhecido");
+						System.out.println(mensagem[0]);
+						break;
+				}
+			}
+		}catch(Exception e){
+			//System.out.println("Deu pau listenMultiCast");
+			//System.out.println(e.toString());
+		}
+	}
+        
+        // Envia pedido por um recurso para o multicast
+	// recurso: Recurso a ser requisitado
+	// multicast: Socket com conexao para o multicast
+	public void enviaREQUEST(String recurso, MulticastSocket multicast) {
+		try {
+			// Monta mensagem
+			String pedido = Metodos.REQUEST + CRLF; // METODO
+			pedido += recurso + CRLF; // Conteudo
+			pedido += this.id + CRLF; // Origem
+
+			// Envia mensagem
+			DatagramPacket data = new DatagramPacket(pedido.getBytes(),
+																								pedido.length(),
+																		        		this.group,
+																		        		this.multicastPORT);
+      multicast.send(data);
+
+			// Altera estado para WANTED
+			if(recurso == Recursos.Recurso1){
+				this.state1 = Estados.WANTED;
+				this.timeStamp1 = System.currentTimeMillis();
+				System.out.println("Alteracao de estado: " + Recursos.Recurso1 + " > " + this.state1);
+			} else if(recurso == Recursos.Recurso2){
+				this.state2 = Estados.WANTED;
+				this.timeStamp2 = System.currentTimeMillis();
+				System.out.println("Alteracao de estado: " + Recursos.Recurso2 + " > " + this.state2);
+			}
+
+		}catch(Exception e) {
+			//System.out.println("Deu pau enviaREQUEST");
+			//System.out.println(e.toString());
+		}
+	}       
+        
+        
+        public void defineMeste(MulticastSocket multicast, Processo processo)
+        {   
+            try
+            {
+                if(processo.prioridade>1 && processo.prioridade<4){
+                    while(this.running)
+                    {
+                        byte[] buffer = new byte[10*1024];
+                        DatagramPacket data = new DatagramPacket(buffer, buffer.length);
+                        multicast.receive(data);
+                        String linha = new String(data.getData(), data.getOffset(), data.getLength());
+                        processo.mestreAtual = Integer.parseInt(linha);
+                        //break;
+                    }
+                }
+            }
+            catch(Exception e){
+			//System.out.println("Deu pau listenMultiCast");
+			//System.out.println(e.toString());
+            }
+        }
+
+	// Envia mensagem para entrar no multicast
+	public void enviaMARCO(MulticastSocket multicast){
+		try{
+			//System.out.println("Mandando MARCO");
+			// Envia mensagem de hello
+			String mensagemDeHello = Metodos.MARCO + CRLF; // Metodo
+			mensagemDeHello += this.id + CRLF; // Origem
+	        DatagramPacket data = new DatagramPacket(mensagemDeHello.getBytes(),
+	        		mensagemDeHello.length(),
+	        		this.group,
+	        		this.multicastPORT);
+	        multicast.send(data);
+		}catch(Exception e){
+			//System.out.println("Deu pau enviaMARCO");
+			//System.out.println(e.toString());
+		}
+	}
+        
+	public void enviaMestre(Processo processo, MulticastSocket multicast) {
+		try {
+                        if(processo.prioridade==1)
+                        {
+                            String mestre = processo.id; 
+                            DatagramPacket data = new DatagramPacket(mestre.getBytes(),
+                                            mestre.length(),
+                                    this.group,
+                                    this.multicastPORT);
+                            multicast.send(data);
+                            System.out.println("Enviou");
+                        }
+			// Altera estado para WANTED
+		}catch(Exception e) {
+			//System.out.println("Deu pau enviaREQUEST");
+			//System.out.println(e.toString());
+		}
+	}
+
+	public boolean isTimeOUT(){
+		long now = System.currentTimeMillis();
+		boolean timeout = false;
+		if(this.timeStamp1 != 0){
+			timeout = timeout || (Math.abs(now - this.timeStamp1) >= this.deltaT);
+		}
+		if(this.timeStamp2 != 0){
+			timeout = timeout || (Math.abs(now - this.timeStamp2) >= this.deltaT);
+		}
+		return timeout;
+	}
+
+	public void reiniciarLista(MulticastSocket multicast){
+		this.membros = new ArrayList<String>();
+		liberarRecurso(1);
+		liberarRecurso(2);
+		this.enviaMARCO(multicast);
+	}
+
+	public boolean liberarRecurso(int recurso){
+		//System.out.println("Liberando recurso");
+
+		switch(recurso){
+			case 1:
+				this.state1 = Estados.RELEASED;
+				this.checks1 = 0;
+				this.timeStamp1 = 0;
+				System.out.println("Alteracao de estado: " + Recursos.Recurso1 + " > " + this.state1);
+				return true;
+			case 2:
+				this.state2 = Estados.RELEASED;
+				this.checks2 = 0;
+				this.timeStamp2 = 0;
+				System.out.println("Alteracao de estado: " + Recursos.Recurso2 + " > " + this.state2);
+				return true;
+			default:
+				return false;
+		}
+	}
+
+	private void acessarRecurso(int recurso){
+		//System.out.println("Acessando recurso");
+		switch(recurso){
+			case 1:
+				this.state1 = Estados.HELD;
+				this.checks1 = 0;
+				this.timeStamp1 = 0;
+				System.out.println("Alteracao de estado: " + Recursos.Recurso1 + " > " + this.state1);
+				break;
+			case 2:
+				this.state2 = Estados.HELD;
+				this.checks2 = 0;
+				this.timeStamp2 = 0;
+				System.out.println("Alteracao de estado: " + Recursos.Recurso2 + " > " + this.state2);
+				break;
+		}
+	}
+
+	// Funcao para tratar uma mensagem de HELLO
+	private void respondeMARCO(String[] mensagem, MulticastSocket multicast){
+		try{
+			//System.out.println("Respondendo MARCO");
+			// Adiciona novo membro na lista de membros
+			this.membros.add(mensagem[1]);
+			// Monta e envia resposta
+			String resposta = Metodos.POLLO + CRLF; // Metodo
+			resposta += mensagem[1] + CRLF; // Destinatario
+			resposta += this.id + CRLF; // Conteudo
+			resposta += this.id; // Origem
+			DatagramPacket data = new DatagramPacket(resposta.getBytes(),
+					resposta.length(),
+	        		this.group,
+	        		this.multicastPORT);
+	        multicast.send(data);
+		}catch(Exception e){
+			//System.out.println("Deu pau respondeMARCO");
+			//System.out.println(e.toString());
+		}
+	}
+
+	// Funcao para tratar uma mensagem de RESPONSE
+	private void trataPOLLO(String[] mensagem, MulticastSocket multicast){
+		//System.out.println("Recebendo POLLO");
+		try{
+			// Se a mensagem eh para mim, e nao veio de mim
+			if(mensagem[1].equals(this.id) && !mensagem[3].equals(this.id)){
+				// Adiciona o membro na lista de membros
+				this.membros.add(mensagem[2]);
+			}
+		}catch(Exception e){
+			//System.out.println("Deu pau trataPOLLO");
+			//System.out.println(e.toString());
+		}
+	}
+
+	// Funcao para responder pedido de entrada na SC
+	private void respondeREQUEST(String[] mensagem, MulticastSocket multicast){
+		try {
+			//System.out.println("Respondendo request");
+			String resposta = Metodos.RESPONSE + CRLF; // METODO
+			resposta += mensagem[2] + CRLF; // Destinatario
+			// Conteudo
+			switch(mensagem[1]) {
+				case Recursos.Recurso1:
+					resposta += this.state1 + CRLF;
+					resposta += Recursos.Recurso1 + CRLF;
+					break;
+				case Recursos.Recurso2:
+					resposta += this.state2 + CRLF;
+					resposta += Recursos.Recurso2 + CRLF;
+					break;
+				default:
+					resposta += Estados.UNKNOW + CRLF;
+					//System.out.println("Recurso desconhecido");
+			}
+			resposta += this.id + CRLF; // Origem
+			DatagramPacket data = new DatagramPacket(resposta.getBytes(),
+					resposta.length(),
+	        		this.group,
+	        		this.multicastPORT);
+	        multicast.send(data);
+		}catch(Exception e) {
+			//System.out.println("Deu pau respondeREQUEST");
+		}
+	}
+
+	private void trataRESPONSE(String[] mensagem) {
+		try {
+			//System.out.println("Tratando response");
+			// Se a resposta for pra mim
+			if(mensagem[1].equals(this.id) && !(mensagem[4].equals(this.id))){
+				switch(mensagem[3]){ // Recurso
+					case Recursos.Recurso1:
+						if(this.state1.equals(Estados.WANTED)){
+							if(!mensagem[2].equals(Estados.RELEASED)){
+								System.out.println("Outro processo esta usando o recurso " + mensagem[3]);
+								System.out.println("Desistindo de usar...");
+								liberarRecurso(1);
+								break;
+							}
+							this.timeStamp1 = System.currentTimeMillis();
+							this.checks1++;
+							if(this.checks1 == this.membros.size() - 1){
+								acessarRecurso(1);
+							}
+						}
+						break;
+					case Recursos.Recurso2:
+						if(this.state2.equals(Estados.WANTED)){
+							if(!mensagem[2].equals(Estados.RELEASED)){
+								System.out.println("Outro processo esta usando o recurso " + mensagem[3]);
+								System.out.println("Desistindo de usar...");
+								liberarRecurso(2);
+								break;
+							}
+							this.timeStamp2 = System.currentTimeMillis();
+							this.checks2++;
+							if(this.checks2 == this.membros.size() - 1){
+								acessarRecurso(2);
+							}
+						}
+						break;
+				}
+			}
+		}catch(Exception e) {
+			//System.out.println("Deu pau trataRESPONSE");
+		}
+	}
+        
+        public void definePrioridade(Processo processo)
+        {
+            if(processo.membros.size()==1)
+            {
+                processo.prioridade=1;
+                //System.out.println("Olá, sou o processo mestre");
+            }
+            else if(processo.membros.size() > 1 && processo.membros.size() < 5)
+            {
+                processo.prioridade=2;
+                //System.out.println("Olá, sou o processo escravo");
+            }
+        }
+}
+
+class Constantes{
+	public static class Metodos{
+		public final static String MARCO = "MARCO";
+		public final static String POLLO = "POLLO";
+		public final static String REQUEST = "REQUEST";
+		public final static String RESPONSE = "RESPONSE";
+	}
+	public static class Estados{
+		public final static String HELD = "HELD";
+		public final static String RELEASED = "RELEASED";
+		public final static String WANTED = "WANTED";
+		public final static String UNKNOW = "UNKNOW";
+	}
+	public static class Recursos{
+		public final static String Recurso1 = "Recurso1.txt";
+		public final static String Recurso2 = "Recurso2.txt";
+	}
+	public static class ModoLeituraEscrita{
+		public final static int Leitura = 0;
+		public final static int Escrita = 1;
+		public final static int LeituraEscrita = 2;
+	}
+
+}
+
