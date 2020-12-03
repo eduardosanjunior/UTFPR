@@ -1,0 +1,21 @@
+Olá professora, tudo bem? espero que sim.
+Subi o video da apresentação no Youtube por causa do tamanho do
+arquivo.
+
+Segue o link:
+
+https://www.youtube.com/watch?v=Vg54QomhMqg
+
+caso algum problema favor me informar!
+
+Errata:
+
+Verificando o video percebi que na hora de explicar o metodo de verificação de assinatura
+(verifysign) eu falei que ele usar a chave privada, mas na verdade ele usa a publica para verificar a 
+assinatura recebida.
+
+Espero que considere a errata.
+
+
+att.
+Eduardo Junior
