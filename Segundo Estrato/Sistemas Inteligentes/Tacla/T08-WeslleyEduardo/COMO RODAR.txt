@@ -1,0 +1,2 @@
+1- Na linha 71 do arquivo Main.java escolha entre 1 para executar Aleatoriamente e 2 para o algoritmo inteligente
+2- compile a pasta src e execute
