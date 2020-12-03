@@ -1,0 +1,61 @@
+Abstração de Dados -->
+- O SGBD deve prover uma visão abstrata do BD.
+- A abstração considera propriedades comuns aos objetos, utilizando hierarquias como "é-um", "parte-de".
+
+Modelaos de Dados --> 
+	conjunto de conceitos que descrebem a estrutura de um banco de dados e suas restrições.
+
+	|conceitual| -> |Implementação| -> |Físico|
+
+Modelo Conceitual -->
+	 é de alto nível, representando a semântica.
+Modelo de Implementação ->>
+	balanceia visões do usuário com detalhes de implementação.
+Modelo Físico -->
+	apresenta detalhes de como os dados são armazenados.
+
+Hístorico -->
+- Modelo Hierárquico(1965) -->
+	modos apresentados como coleções de árvores.
+- Modelo de Redes(1964-1965) -->
+	dados representados por registros e elos.
+- Modelo Relacional(1970-1981) -->
+	dados representados por tabelas e colunas.
+- Modelo Orientado a Objeto(1990) -->
+	teve origem em linguagem de programação e inclui o códio executável como parte do modelo.
+- Modelo Objeto-Relacional -->
+	extensão do modelo relacional integrando características de O.O.
+
+Esquemas -->
+	Descrição do BD, incluindo estrutura e restrições.
+Instâncias -->
+	Coleção de informação armazenada no BD.
+
+Modelo Entidade-Relacionamento (MER)-->
+	É a técnica mais difundida e utilizada, criada em 76 por Chen.
+	É representado graficamente pelo diagrama Entidade-Relacionamento.
+
+- Entidades->>
+	são objetos ou coisas do mundo real do qual deseja-se guardas propriedades.
+	Exemplos:
+
+- Atributos -->
+	propriedades usadas para descrever entidades.
+	Exemplos:
+
+- Atributos Simples -->
+	possuem valor atônico.
+	Exemplos:[Aluno]->Nome
+
+- Atributo COmposto -->
+	possui vários componentes.
+	Exemplos:[Professor]->Endereço->Rua
+
+- Atributo Multirelacionados -->
+	possuiu vários valores.
+	Exemplos:[Aluno]->(Habilidades)
+
+- Atributo Identificados -->
+	identifica unicamente uma entidade.
+	Exemplos:[Aluno]->R.A.
+

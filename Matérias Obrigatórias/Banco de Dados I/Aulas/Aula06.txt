@@ -1,0 +1,69 @@
+MER Estendido
+-Incluir os conceitos do ER Básico mais:
+- Subclasses/Superclasses:
+	- Generalização/Especialização;
+	- Herança;
+- Agregação;
+
+Superclasses/Subclasses-->
+	Uma entidade pode ter subgrupos adicionais de suas entidades;
+	Exemplo:
+	
+	  |Empregado|
+	       |
+	      (a)
+   |Secretária|	 |Técnico|
+	
+
+-Restrição de não sobreposição-->
+	Conjuntos disjuntos são identificados como "d".
+	Conjuntos sobrepostos são identificados como "o".
+
+-Restrição de completude:
+	-Total-->
+		Toda instância da superclasse deve ser membro da subclasse.
+	Representação: linha dupla.
+
+	-Parcial-->
+		Permite que uma entidade não pertença a subclasses.
+	Representação: linha simples
+
+-Agregação-->
+	Agrega duas ou mais entidades em um conceito de mais alto nível.	
+		 ______________________________________
+		| |Empresa|--<entrevista>--|Candidato| |---<resultado>---|Emprego|
+	         --------------------------------------	
+
+Modelo Relacional (MR)
+	- Baseado em relação (conjunto).
+	- Propostos por Codd (1970).
+
+Visão Informal-->
+	Uma relação pode ser vista como um conjunto de linhas ou colunas.
+Visão Formal-->
+	Dado R(A1,A2,...,An) Y (R) C dom(A1) x dom(A2)x...x dom(An).
+	Onde: R é um esquema e Y de R é um valor específico de R.
+
+	Relação
+
+|Termos Informais | Termos Formais |
+	Tabela	  |	Relação
+	Coluna	  |	Atributo
+	Linha 	  |	Tupla
+   Valores de uma |	Dominio
+	Coluna    |
+
+
+Restrições de Integridade-->
+	-Restrições de chave:
+		Superchave-->
+			Subconjunto de atributos do esquema R com a propriedade de que 2 tuplas, em qualquer estado de R, não tenham as mesmas combinações de valores.
+		Chave-->
+			Uma chave K é uma superchave com a propriedade adicional que, se remover quaisquer atributo, não é mais superchave.
+		
+		Exemplos-->
+			Podem haver várias chaves candidatas mas só uma é primária.
+	-Integridade Referencial-->
+		Restrição de duas relações, onde uma referencia a outra.			
+ 
+		 

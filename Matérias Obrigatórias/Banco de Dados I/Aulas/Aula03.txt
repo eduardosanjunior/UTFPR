@@ -1,0 +1,55 @@
+Banco de Dados (BD)
+
+
+- É uma coleção de dados relacionados entre si;
+- Sistema Gereneciador de Banco de Dados (SGBD): é um conjunto de programas para a criação e manutenção eficiente de um BD. É utilizado para a definição, construção, manipulação e compartilhamento.
+
+SGBD -->
+Interface
+Processamento de consultas
+Processamento de transações
+Acesso a arquivos
+Banco de dados
+
+
+Linguagens -->
+Manipulação de dados(DML);
+Definição de Dados (DDL);
+
+História -->
+Década de 60 = fitas e cartões perfurados, com alto tempo de acesso.
+- Discos rígidos;
+- Dados em redes (listas e árvores);
+- Edward Codd (Modelo Relacional);
+
+Até meados de 70 =
+- Modelo Relacional (baixo desempenho);
+- Modelo em rede e hierarquico prevaleciam;
+
+Década de 80 = System R
+- IBM SQL/DS, BD2, ORACLE;
+- BD's relacionais tornam-se competitivos;
+- BD paralelo, distrubuído e OO.
+
+Década de 90: SGBD paralelo e distribuído = 
+- Novos tipos de dados (imagem e texto);
+- Web, alta taxa de desempenho, SGBD 24x7.
+
+Anos 2000 = 
+-Formulários web, xml, mercado lucrativo;
+
+Diferença entre Sistemas de Arquivos -->
+SGBDs ->
+- Sistema de Arquivos utiliza árvore de diretórios com um grande número de programas específicos;
+- SGBDs possuem mais funcionalidades para estruturas, fórmulas matemáticas, parte gráfica, etc. Além disso, possui outras vantagens como: Abstração, segurança, concorrência, otimização, etc.
+
+Quando não usar um SGBD?
+R.Aplicações especializadas e alto custo.
+
+Arquiqueturas -->
+- Centralizada (Paralela ou não): exs- Mainframes e PC's.
+- Cliente/Servidor:
+	- 2 camadas -> Cliente: GUI, aplicação
+		    -> Servidor: Execução de consultas, transações,etc.
+	
+	- 3 camadas -> Além das duas camadas acima, existe a camada intermediária para guardar as regras de negócio.

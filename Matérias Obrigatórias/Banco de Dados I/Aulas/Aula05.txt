@@ -1,0 +1,58 @@
+Modelo Entidade - Relacionamento
+Entidade Fraca: Não tem atributo identificados. Só tem identificação parcial, e participa de um relacionamento com uma entidade forte.
+Ex:
+
+	|Funcionário|--<tem>==|Dependente|
+
+Relacionamento: Associações entre entidades sobre as quais deseja-se manter informações.
+Ex:
+	|Aluno|--<matricula>--|Disciplina|
+
+Grau de relacionamento:
+- Unário-->
+	é um auto-relacionamento
+	   |-------------|
+	|Pessoa|--<ama>--|
+
+-Binário-->
+	|Pessoa|--<dirige>--|Carro|
+
+-Ternário-->
+	|Distribuidor|--<K>--|Fábrica|
+			 |
+			 |
+		     |Cliente|
+Onde |k| = |D|*|F|*|C|;
+
+-Podem existir mais que um relacionamento entre entidades.
+	
+		  |Data|
+		     |
+	|Pessoa|--<adora>----|Lugar|
+		--<detesta>--
+
+Cardinalidades-->
+	Quantas ocorrências de uma entidade podem estar associadas a outra entidade.
+	
+	1:1
+
+	   |--------0:1------|
+	|Pessoa|--1:0-<ama>--|
+
+	1:N ou N:1
+	
+	|Pessoa|---0:1--<tem>---0:N--<Carro>
+
+	N:M
+
+	|Aluno|--0:N--<matricula>--0:N--<Disciplina>
+
+	
+Cardinalidade Mínima X Cardinalidade Máxima
+
+	|Pessoa|--<tem>--0:N--|Carro|
+			 | |
+			 | |_Cardinalidade Máxima
+			 |_Cardinalidade Mínima
+
+Lê-se: Uma pessoa pode ter no mínimo zero e no máximo N carros.

@@ -1,0 +1,28 @@
+
+1) Descreva os dados (colunas, número de linhas, se há bairros, etc.)
+R: Informações do arquivo:
+Colunas ->
+	NOME_PROFISSIONAL
+	OCUPACAO
+	ESTABELECIMENTO_CNPJ
+
+Número de registros -> 
+	2593
+
+Possiveis colunas a adicionar ->
+	LOCALIZACAO
+	ATENDIMENTO_HORARIO
+
+Possiveis dados do usuario ->
+	LOCALIZACAO
+	HORARIO_DESEJADO
+
+2) Descreva uma ferramenta que poderia tirar proveito dos dados reais.
+R: Uma ferramenta de pesquisa de médicos com determinada especialidade ordenado por centros. 
+
+3) Quais as perguntas que sua ferramenta poderia responder?
+R: 
+Qual o médico especialista mais proximo da minha casa?
+Qual horario de atendimento do médico?
+Quantos especialistas existem em Curitiba?
+
