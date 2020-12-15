@@ -1,10 +1,10 @@
 <img src= http://portal.utfpr.edu.br//++theme++utfpr_branco/img/logo.png>
 
 <h1 align="center"><b> Repositório do BSI</b></h1>
-<p align="center">Olá, tudo bem?
-Esse é um repositório com alguns arquivos, trabalhos, livros e ajudas que usei durante a graduação.
-Sinta-se a vontade para usar o conteúdo.
-Caso queira adicionar mais coisas para as futuras turmas, fique a vontade.
+<p align="center">Olá, tudo bem? </br>
+Esse é um repositório com alguns arquivos, trabalhos, livros e ajudas que usei durante a graduação.</br>
+Sinta-se a vontade para usar o conteúdo.</br>
+Caso queira adicionar mais coisas para as futuras turmas, fique a vontade.</br>
 </p>
 
 <p align="center">
