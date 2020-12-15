@@ -8,10 +8,16 @@ Caso queira adicionar mais coisas para as futuras turmas, fique a vontade.</br>
 </p>
 
 <p align="center">
- <a href="#objetivo">Objetivo</a> •
+ <a href="#status">Status</a> •
  <a href="#roadmap">Roadmap</a> • 
  <a href="#tecnologias">Tecnologias</a> • 
  <a href="#contribuicao">Contribuição</a> • 
  <a href="#licenc-a">Licença</a> • 
  <a href="#autor">Autor</a>
 </p>
+
+<a href="#status"
+<h4 align="center"> 
+	🚧  Repositório 🚨 Em 🚨 construção...  🚧
+</h4>
+>
