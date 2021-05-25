@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>	
+</head>
+<body>
+<h2><b>  Utilização de <i>Scrum</i> e Experiência de Usuário no Desenvolvimento de Software </b></h2>
+	<h3>Introdução</h3>
+<p> Inicialmente o processamento de dados estavam ligados fielmente a parte física do computador, não existia programas instalados e cada necessidade demandada o computador devia ser alterado fisicamente. Em 1945 o matemático John von Neumann apresentou a ideia do primeiro computador com uma série de instruções armazenadas internamente que poderiam ser combinadas criando uma vasta quantidade de programas úteis, computador nomeado como EDVAC (Wilkes, 1956). </p>
+
+
+<p>Desde lá, a indústria de software tem crescido a se tornar umas das mais importantes da era moderna. Não existe forma de fugir do software, está presente em todas as atividades desde as mais simples como fazer compras ou até as mais complexar como dirigir carros. Essa demanda de todas as áreas por softwares que atendam ás necessidades nas mais diferenciadas escalas, torna o mercado de software cada vez mais competitivos, se esforçando para trazer novas tecnologias, produtos e serviços. O sucesso de uma empresa pode estar na maioria das vezes entrelaçado com a frequência com o que elas lançam essas inovações diferenciando-as dos seus concorrentes (Prikladnicki, Miliani e Willi, 2014).</p>
+
+<p>Neste contexto, na década de 1990, é introduzido o método novo de desenvolvimento de software chamado Métodos Ágeis (Prikladnicki, Miliani e Willi, 2014). Tal metodologia vinha com uma forma nova de pensamento sobre o desenvolvimento de software, que a diferenciava dos métodos nomeados como clássicos que tinham seu foco voltado a documentação, resultando num software “pesado” e de difícil sustentabilidade (Soares, 2004). O foco da metodologia ágil em pessoas e seu conjunto de valores, tornou ela uma ótima alternativa para respostas rápidas para mudanças de um mercado em constante alteração (Soares, 2004).</p>
+
+<p>	Dessas metodologias ágeis, o Scrum é uma das mais difundidas entre os projetos de desenvolvimento de software, o método foi apontado como sendo usado por 2 a cada 3 participantes da pesquisa realizada pela VersionOne em 2011 (VersionOne, 2011). Mesmo com uma aceitação mundial ótima e trazendo resultados para as empresas independente do porte que o adotaram (Sabbagh, 2014), não implica que ele seja perfeito e tenha todos os seus problemas resolvidos. Alguns atrelados a casos específicos da equipe de desenvolvimento, apontados por (Virgínia, 2010). Ou até mesmo no gerenciamento de riscos como elencado por (Soares, 2004) em seu estudo. Mesmo que essas metodologias prezem por um conjunto de valores, elas ainda estão ligadas a premissa de entregar o produto o mais rápido e com o menor custo possível com a melhor qualidade possível, esse ponto pode ser um calcanhar de Aquiles no desenvolvimento de software (Prikladnicki, Miliani e Willi, 2014). </p>
+
+<p>Mas o que é essa tal qualidade? É válido, pensar o conceito de qualidade; A ideia de por muitas vezes pode ser vista como simples e facilmente definida, mas ao se parar para analisar ao longo do tempo se torna cada vez mais complexo se definir (Koscianski e Soares,2007). Segundo Herman G. Weinberg: “A qualidade é relativa. O que é qualidade para uma pessoa pode ser falta de qualidade para outra”. Trazendo essa discussão para o ambiente de desenvolvimento de software, não existe um consenso entre autores sobre o que é qualidade de software, apenas concordam que essa meta a ser perseguida (Rocha e Campos, 2012).</p>
+
+<p>Segundo Stahl (1988), existe um ponto de convergência entre os autores, que um software de qualidade é aquele que atende as necessidades do usuário. Mas essa meta não surge do nada no produto final, ela é um compilado de várias etapas tanto de requisitos, codificação, avaliação e etc. Visando atingir essa qualidade a Experiência do Usuário (UX) tem como objetivo levar em consideração a satisfação do usuário na sua mais extensa pluralidade: desde os sentimentos hedônicos presentes antes da apresentação de um produto até as expectativas durante a utilização (Hassenzahl, 2003).</p>
+
+<p>Apesar dos conceitos de Experiência do Usuário (UX) e Scrum serem muitas vezes aplicadas em conjunto no mercado de desenvolvimento de software (Kikitamara e Noviyanti, 2018) e ser em especial promissora a união, não há clareza, padrões ou diretrizes a serem seguidos na hora de aplicá-las (Kuusinen, Mikkonen e Pakarinen, 2012), (Ferreira, Sharp e Robinson, 2011), (Silva etal., 2011). Isso causa um atrito, incertezas e questionamentos sobre a integração dos dois elementos, e impede clareza e coesão delas no processo de produção, como não conseguir professionais e usuários devido alguns elementos temporais estabelecidos pelo Scrum, como as durações dos ciclos de trabalho (Sprint) pode impedir trabalhos como a pesquisas com usuários ou escrever histórias de usuário (Lárusdóttir, Cajander e Gulliksen, 2012).</p>
+
+<P>Tendo em vista esse panorama, este trabalho se propõe a realizar um levantamento bibliográfico sobre trabalhos que conciliem o Scrum com a Experiência do usuário (UX) e assim responder à pergunta “O que é necessário adaptar no fluxo de desenvolvimento de software para incluir a experiência do usuário?’. Este estudo visa assim desenvolver uma proposta para responder à questão de pesquisa utilizando a classificação em Kikitamara e Noviyanti (2018).</P>
+
+
+
+<h2>Referência teórico</h2>
+<h3> Metodologias ágeis </h3>
+<p>Mesmo com o surgimento em na década de 1990, as metodologias ágeis só se popularizaram a partir de 2001, quando um grupo de 17 especialistas em desenvolvimento de software nas diversas metodologias se uniram e definiram princípios que seriam divididos entre esses métodos (Soares, 2004).  Essa reunião resultou na Aliança Ágil e o estabelecimento do Manifesto Ágil.</p>
+
+<p>O Manifesto Ágil virou referência de boas práticas em desenvolvimento de software, que tem como base um conjunto valores a serem seguidos, sendo eles:</p>
+
+<ul>
+	<li>Indivíduos e iterações acima de processos e ferramentas;</li>
+	<li>Software em funcionamento acima de documentação abrangente;</li>
+	<li>Colaboração com o cliente acima de negociação de contratos;</li>
+	<li>Responder às mudanças antes de seguir o plano.</li>
+</ul>
+
+<p>Baseado nesses valores o Manifesto (Shwaber et al, 2001) apresenta 12 princípios, são eles:</p>
+
+<ul>
+	<li>Nossa maior prioridade é satisfazer o cliente através de entrega antecipada e contínua de software;</li>
+	<li>Receber mudanças de requisitos, mesmo tardiamente no projeto;</li>	
+	<li>Entregar software estável com frequência, entre algumas semanas e alguns meses, com preferência à escala de tempo mais curta; </li>	
+	<li>A equipe de negócios e a de desenvolvimento devem trabalhar juntos diariamente durante o projeto; </li>		
+	<li>Construa projetos em torno de indivíduos motivados; </li>	
+	<li>O método mais eficiente e eficaz de transmitir informações para e dentro de um desenvolvimento em equipe é conversa pessoal;</li>	
+	<li>A versão estável do software é a medida prioritária de progresso; </li>	
+	<li>Processos ágeis promovem o desenvolvimento sustentável. Os patrocinadores, desenvolvedores e usuários devem poder manter um ritmo constante indefinidamente; </li>	
+	<li>Atenção contínua à excelência técnica e um bom design aumentam a agilidade;</li>	
+	<li>Simplicidade - a arte de maximizar a quantidade de trabalho não feito - é essencial;</li>	
+	<li>As melhores arquiteturas, requisitos e designs emergem de equipes auto-organizadas;</li>	
+	<li>Em intervalos regulares, a equipe reflete sobre o que fazer para se tornar mais eficaz, então afina e ajusta seu comportamento de acordo. </li>	
+</ul>
+
+<p>O manifesto ágil salienta tudo o que tem de mais valor nas metodologias ágeis. Burocracia tem seu valor para o desenvolvimento de software, mas não são mais importantes que saber se relacionar com pessoas e ter o cliente sempre presente para encontrar soluções de qualidade e se adaptar para mudanças.  Essas metodologias propõem em um tempo menor a obtenção de resultados, para isso tirasse o foco dos processos e coloca no produto (Filho, 2008). </p>
+
+<h3>Scrum</h3>
+<p>O Scrum é um framework de gerenciamento de projetos, da organização ao desenvolvimento ágil de produtos complexos e adaptativos com o mais alto valor possível. O Scrum possui seu foco no gerenciamento e projeto da organização onde é difícil planejar à frente. Há maneiras de controle empírico, onde ciclos de feedback constituem o núcleo da técnica de gerenciamento que são usadas (Schwaber e Sutherland, 2020).</p>
+
+<p>Segundo o guia do Scrum (Schwaber e Sutherland, 2020), podem ser divididos em 3 grupos de conceitos:  Papéis/Time, Eventos e Artefatos. Tais conceitos serão explicados resumidamente nas tabelas 1, 2, 3.</p>
+<table border="1">
+    <tr>
+        <td colspan="2" style="text-align: center"><b>Tabela 1: Papéis/Time</b></td>   
+    </tr>
+    <tr>
+        <td style="text-align: center"><b>Conceito</b></td>
+        <td style="text-align: center"><b>Definição</b></td>
+    </tr>
+    <tr>
+        <td><b>Product Owner (PO)</b></td>
+        <td>Também chamado de Dono do Produto, é o responsável por gerenciar as necessidades
+do produto de forma clara todos os interessados.</td>
+    </tr>
+    <tr>
+      <td><b>Scrum Master</b></td>
+        <td>Como função principal, o Scrum Master é responsável por colocar em prática de
+forma efetiva o Scrum como definido no Guia Scrum.</td>
+    </tr>
+     <tr>
+      <td><b>Time de Desenvolvimento</b></td>
+        <td>São profissionais que realizam o trabalho para entregar, a cada iteração, um
+incremento do produto considerado "Pronto" para aquele momento.</td>
+    </tr>
+</table>
+<br>
+<br>
+<br>
+<table border="1">
+    <tr>
+        <td colspan="2" style="text-align: center"><b>Tabela 2: Eventos</b></td>   
+    </tr>
+    <tr>
+        <td style="text-align: center"><b>Conceito</b></td>
+        <td style="text-align: center"><b>Definição</b></td>
+    </tr>
+    <tr>
+        <td><b>Sprint</b></td>
+        <td>A Sprint é o coração do Scrum. Ela é um faixa de tempo de um mês ou
+menos, com duração fixa, para outros eventos.</td>
+    </tr>
+    <tr>
+      <td><b>Planejamento da Sprint</b></td>
+        <td>É nada mais do que um evento de no máximo
+oito horas, realizado antes do início da Sprint pelo Time Scrum.</td>
+    </tr>
+     <tr>
+      <td><b>Reunião Diária</b></td>
+        <td>Evento acontece internamente entre o Time
+de Desenvolvimento e tem como propósito informar a todos dentro dele sobre o status e
+andamento do projeto.</td>
+   </tr>
+ <tr>
+      <td><b>Revisão da Sprint</b></td>
+        <td>Ao final da Sprint, é realizada a sua revisão. Esse evento inspeciona o incremento e
+adapta a lista de necessidades do Produto caso necessário.</td>
+   </tr>
+ <tr>
+      <td><b>Retrospectiva da Sprint</b></td>
+        <td>Após a Revisão da Sprint e antes do Planejamento da Sprint, em no máximo três
+horas, o Time Scrum inspeciona seu próprio desempenho para com o projeto</td>
+   </tr>
+</table>
+<br>
+<br>
+<br>
+<table border="1">
+    <tr>
+        <td colspan="2" style="text-align: center"><b>Tabela 3: Artefatos</b></td>   
+    </tr>
+    <tr>
+        <td style="text-align: center"><b>Conceito</b></td>
+        <td style="text-align: center"><b>Definição</b></td>
+    </tr>
+    <tr>
+        <td><b>Backlog do Produto</b></td>
+        <td>De forma simples, é uma lista ordenada de tudo que se julga necessário pelo
+<i>Product Owner</i> para a implementação e entrega produto final.</td>
+    </tr>
+    <tr>
+      <td><b>Backlog da Sprint</b></td>
+        <td>A partir da definição de uma meta para a Sprint, é filtrado itens do Backlog do
+Produto pelo Time de Desenvolvimento e transformados em Backlog da Sprint</td>
+    </tr>
+     <tr>
+      <td><b>Incremento</b></td>
+        <td>Atendendo de forma transparente ao Backlog da Sprint em execução, o Incremento
+é um subproduto, um entregável que atende ao objetivo da Sprint.</td>
+   </tr>
+ <tr>
+      <td><b>Definição de “Pronto”</b></td>
+        <td>É necessário que todos tenham o mesmo entendimento do que é considerado
+“Pronto”, para evitar divergências durante o desenvolvimento.</td>
+   </tr>
+</table>
+<br>
+<br>
+<br>
+<h3>Experiência do Usuário (<i>UX</i>)  </h3>
+
+<p>Na década de 1990, Donald A. Norman, integrante da empresa <i>Apple</i>, denominava seu cargo como Arquiteto de  Experiência do Usuário, pois via que a interface humana e a usabilidade andavam de mão dadas e, por tanto contribuíam para aspectos ligados a experiência das pessoas no momento de interagir com um sistema (Buley, 2013), a partir deste marco a Experiência do usuário ou simplesmente UX.</p>
+
+<p>Mas a Experiência do Usuário vai muito além de usabilidade e utilidade. Ela está fortemente entrelaçada com as emoções,  como se dá a reação de um sujeito com  um meio informacional digital. São os sentimentos que são gerados no ser de forma individualizada, originando  respostas emocionais ou físicas (ferreira, 2018). Com isso, pode-se dizer que a Experiência do usuário não pode ser mensurada em sua completude pela usabilidade, pois usabilidade tem foco no produto e na tecnologia utilizada, já a Experiência do usuário está voltada para emoções no uso (Norman 2008).</p>
+
+<p>Para que o conceito de UX não fique muito vago, é aceitável utilizar uma definição, no caso uma definição se encontra na ISO 9241-210:2010, que diz resumidamente: <i>"As percepções e respostas da pessoa como resultado da utilização e
+/ ou utilização antecipada de um produto, sistema ou serviço. Nota 1 à entrada: Experiência do Usuário inclui todas as emoções, crenças, preferências, percepções, respostas físicas e psicológicas, comportamentos e realizações do usuário que ocorrem antes, durante e após o uso." (ISO 9241-210, 2010).</i> </p>
+
+
+
+<h3>Experiênca do Usuário e Scrum</i></h3>
+
+<p>No seu trabalho de 2018, Sesaria Kikitamara e Anastasia Ary Noviyanti, da Universitas Prasetiya Mulya, produziram um modelo conceitual para a junção de Experiência do usuário e a metodologia <i>Scrum</i> (Kikitamara, Noviyanti,2018), expondo um rico estado da arte de estudos que utilizaram o método a partir de 2005.</p>
+
+<p>Este trabalho se baseia no estudo realizado por Kikitamara e Noviyanti mencionado anteriormente, que classifica, basicamente, essa junção em três categorias:</p>
+
+<ul>
+	<li>Trabalho Paralelo;</li>
+	<li>Trabalho na mesma Sprint;</li>
+	<li><i>Lean UX</i>;</li>
+</ul>
+<p>A partir do levantamento, avaliação de qualidade e leitura de diversos estudos de caso e relatos dessa integração, as autoras puderam classifica-las em uma das três abordagens citadas acima, descritas em seu trabalho.</p>
+
+<p>Na abordagem <b>“Trabalho Paralelo"</b>, os times de desenvolvimento e <i>UX</i> trabalham após sincronizarem e planejarem suas atividades. O time <i>UX</i> pode avançar até 2 (dois) ciclos para ter dados do usuário e prototipar telas e propor agregadores baseados no usuário ao projeto.</p>
+
+<p>Quando surge novas funcionalidades, pode ocorrer que a prototipação não seja terminada, tal problema seria respondido pelo trabalho paralelo. Geralmente o time de <i>UX</i> avança nos ciclos de desenvolvimentos para ter vantagem na análise dos dados e propor soluções.</p>
+
+<p>Na abordagem <b>“Trabalho na mesma <i>Sprint</i>”</b> – Considera-se Sprint um ciclo de desenvolvimento na metodologia <i>Scrum</i> –, o time de <i>UX</i> trabalha simultaneamente com o time de desenvolvimento durante todo o projeto.</p>
+
+<p>Ao mesmo tempo que o time de desenvolvimento está realizando as atividades de realiza os levantamentos necessários para o ciclo de desenvolvimento o time de <i>UX</i> realiza os levantamentos para o design da mesma e dá início a coleta de dados do próximo ciclo.</p>
+
+<p>Na abordagem <b>“Lean <i>UX</i>”</b> – Lean vem do inglês e significa “Enxuto” -, o usuário tem um maior envolvimento durante o desenvolvimento participando várias vezes dos ciclos. O Time de <i>UX</i> ficará focado no MVP (<i>Minimal Viable Product</i> - Produto Mínimo Viável).</p>
+
+<p>Afim de diminuir o trabalho desnecessário e o desperdício de recursos, que não atendem as necessidades propostas para o produto final, essa abordagem utiliza o MVP como uma representação do produto final, que deixa claro quais as funcionalidades o mesmo deve ter, sempre procurando a validação do usuário que estará recorrentemente presente durante as etapas e desenvolvimento.</p>
+
+<p>Também é importante que toda equipe trabalhe em conjunto, focando em sua área, mas dando suporte para todos caso seja necessário. Aqui, há foco no <i>feedback</i> do usuário e, a partir disso, as ações são tomadas.</p>
+
+<h2>Metodologia</h2>
+
+<h3>Levantamento dos estudos</h3>
+<p>Nesta etapa será realizado o levantamento de artigos que façam uso de ambas as metodologias apresentadas. E será apresentado um pequeno resumo de cada um deles.</p>
+
+<h3>Classificação dos estudos</h3>
+<p> Nesta etapa será realizado uma classificação dos trabalhos levantados na etapa anterior, utilizando a categorização levantada por  KIKITAMARA e NOVIYANTI (2018).</p>
+
+<h3>Avaliação dos estudos </h3>
+<p> Avaliar a utilização conjunta das duas metodologias. Elencando alguns pontos que podem ser considerados importantes na hora de escolher uma abordagem a ser utilizada.</p>
+
+
+<h2>Desenvolvimento</h2>
+<h3>Levantamento dos estudos</h3>
+
+<p> Na Tabela 4  é listada os trabalhos utilizados para a realização da análise. </p>
+
+<table border="1">
+    <tr>
+        <td colspan="4" style="text-align: center"><b>Tabela 4: Estudos separados</b></td>   
+    </tr>
+    <tr>
+        <td style="text-align: center"><b>Ano</b></td>
+        <td style="text-align: center"><b>Nome</b></td>
+        <td style="text-align: center"><b>Autor</b></td>
+        <td style="text-align: center"><b>Local de Publicação</b></td>
+    </tr>
+    <tr>
+        <td>2013</td>
+        <td>Agile-User Experience Design: an Agile and User-Centered Process?</td>
+        <td>Lou Schwartz</td>
+        <td>ICSEA 2013: The Eighth International Conference on Software Engineering Advances</td>
+    </tr>
+    <tr>
+        <td>2011</td>
+        <td>User-Centered Design and AgileMethods: A Systematic Review</td>
+        <td>Tiago Silva da Silva, Angela Martin, Frank Maurer e Milene Silveira</td>
+        <td>2011 Agile Conference</td>
+    </tr>
+     <tr>
+       
+      <td>2014</td>
+      <td>Developing Mobile Healthcare Apps to Meet User Needs</td>
+      <td>Juan Feng</td>
+      <td>Master's Programme in Health Informatics</td>
+   </tr>
+  <tr>
+       <td>2014</td>
+      <td>Lean UX - The Next Generation of User-Centered Agile</td>
+      <td>Lassi A. Liikkanen, Harri Kilpiö, Lauri Svan, Miko Hiltunen</td> 
+      <td>8th Nordic Conference on Human-Computer Interaction: Fun, Fast, Foundational</td>
+   </tr>
+    <tr>
+       <td>2015</td>
+      <td>Task Allocation Beetwen UX Specialist and Developers in Agile Software Development Project</td>
+      <td>Kati Kuusinen</td> 
+      <td>Conference: Interact 2015</td>
+   </tr>
+    <tr>
+       <td>2017</td>
+      <td>The Agile UX Development Lifecycle</td>
+      <td>Suzanne Kieffer, Aissa Ghouti e Benoit Macq</td>
+      <td>50th Hawaii International Conference on System Sciences - 2017</td> 
+   </tr>
+</table>
+<br>
+<br>
+<br>
+
+<p>No trabalho realizado por Kieffer, Ghout e Macq (2017), os autores realizam um estudo de como pode ser adaptado ao ciclo de vida do desenvolvimento de uma aplicação para a inclusão de técnicas de UX e avaliam qual o impacto dessa adaptação no resultado. Para isso realizaram um estado da arte para constituir uma abordagem para o desenvolvimento, montaram um time de unindo voluntários da área de UX, Scrum e desenvolvimento e ao final chegaram à conclusão que existe uma lacuna na literatura sobre maneiras de realizar essa integração, Como resultado do estudo de caso chegaram a conclusão que o incremento resultante no final de cada sprint serviu como porta de feedback dos usuários</p>
+
+<p>Já em Silva,Martin e Maurer (2011), os autores realizam um revisão sistemática de trabalhos que abordem a utilização de <i>Scrum</i>e experiência de usuários nas principais bibliotecas digitais. Para isso utilizam uma metodologia para elencar palavras chaves que conduziram a pesquisa, ao final do levantamento chegaram ao total de 309 estudos divididos nos diversos repositórios. Como resultado, chegaram que existe a necessidade de mais estudos sobre essa questão e que a maioria dos trabalhos coletados utilizam duas equipes distintas uma de desenvolvimento e outra de UX que realizam suas atividades em separado e apresentam seus resultados nas reuniões.  </p>
+
+<p>No artigo de Lassi Etal (2014), os autores apresentam como as empresas podem adicionar o a UX dentro da sua metodologia Scrum, a partir da abordagem <i>Lean UX</i>, o trabalho explica os fundamentos da abordagem Lean UX e cita alguns casos de aplicação na indústria. O estudo propõe uma discussão sobre os benefícios e obstáculos de adaptar o ciclo de desenvolvimento a essa abordagem.</p>
+
+<p>Segundo Feng (2014), os pacientes/usuários veem a usabilidade de aplicativos um empecilho para adoção de tecnologia da informação na área de saúde, assim o autor investiga a viabilidade de aplicação de metodologias ágeis em conjunto ao UX, no desenvolvimento de uma aplicação voltada a fisioterapia, tal projeto utilizando a abordagem Lean UX. Em seus resultados ele aponta que a equipe de desenvolvimento, considerou a abordagem de fácil execução e claramente poderia ser usada para melhorar a usabilidade de aplicativos de saúde, evitando assim retrabalhos.</p>
+
+<p>Apontando as mesmas discussões que os estudos anteriores, Kuusinen(2015), indica que há uma lacuna deixada pela falta de maneiras de conciliar as duas metodologias em abordadas neste trabalho, algumas empresas tem dificuldade de adicionar atividades de UX em seus ciclos de desenvolvimento e como calcular o trabalho necessário para essas atividades. O objetivo apresentado é esclarecer quais tarefas relacionadas à UX podem ou mesmo devem ser realizadas por desenvolvedores e quais requerem a competência especial de um especialista em UX. Assim, apresentando uma estrutura de colaboração entre especialista em UX e desenvolvedores.</p>
+
+<p>Concluindo, no artigo do autor Schwartz (2013), ele cita que há mais de uma década, várias empresas de software, ou apenas em nível das equipes, tentam integrar o desenvolvimento de software ágil e Design Centrado no Usuário, com o foco no  interessante desempenho de métodos ágeis para fornecer software rapidamente e que atendam às necessidades dos usuários com um certo nível de qualidade. O artigo se propõe a apresentar processos usados ​​para integrar as duas tecnologias. Em seu fechamento ele diz que mesmo utilizando processo de trilhas paralelas, é interessante sempre estar preparado para se adaptar dependendo do problema apresentado. </p>
+
+<p>Todos os artigos citados estão listados nas referências. É válido salientar que os resumos apresentados são sínteses bem condensadas dos trabalhos e deixam de fora algumas etapas importantes como metodologias, levantamentos teóricos e análises. </p>
+
+
+<h3>Classificação dos estudos </h3>
+
+<p>Utilizando as definições descritas na Seção <i>Experiênca do Usuário e Scrum</i> a Tabela 5 apresenta a classificação realizada nos estudos elencados. </p>
+
+
+
+<table border="1">
+    <tr>
+        <td colspan="4" style="text-align: center"><b>Tabela 5: Classificação dos estudos selecionados</b></td>   
+    </tr>
+    <tr>
+        <td style="text-align: center"><b>Ano</b></td>
+        <td style="text-align: center"><b>Nome</b></td>
+        <td style="text-align: center"><b>Classificação</b></td>
+        
+    </tr>
+    <tr>
+        <td>2013</td>
+        <td>Agile-User Expereince Design: an Agile and User-Centered Process?</td>
+        <td>Trabalho Paralelo</td>
+    </tr>
+    <tr>
+        <td>2011</td>
+        <td>User-Centered Design and AgileMethods: A Systematic Review</td>
+        <td>Trabalho Paralelo</td>
+    </tr>
+     <tr>
+       
+      <td>2014</td>
+      <td>Developing Mobile Healthcare Apps to Meet User Needs</td>
+      <td>Lean UX</td>
+   </tr>
+  <tr>
+       <td>2014</td>
+      <td>Lean UX - The Next Generation of User-Centered Agile</td>
+      <td>Lean UX</td>
+   </tr>
+    <tr>
+       <td>2015</td>
+      <td>Task Allocation Beetwen UX Specialist and Developers in Agile Software Development Project</td>
+      <td>Trabalho na mesma Sprint</td>
+   </tr>
+    <tr>
+       <td>2017</td>
+      <td>The Agile UX Development Lifecycle</td>
+      <td>Trabalho na mesma Sprint</td> 
+   </tr>
+</table>
+
+
+<p>Os artigos levantados na Seção anterior, foram classificados de acordo com as abordagens descritas. Os artigos <i>Agile-User Expereince Design: an Agile and User-Centered Process</i> e <i>User-centered design and agile methods: a systematic review</i> fazem parte da abordagem de <b>Trabalho Paralelo</b>. Apenas a primeira considerou a pesquisa, mesmo o trabalho de desenvolvimento sendo um processo em paralelo e não bloqueante.</p>
+
+<p>O artigo <i>The Agile UX Development Lifecycle</i>, apesar de ter a parte de Pesquisa, foca mais na pesquisa do produto em si do que na elaboração dele, que é o elemento da UX. Já o artigo <i> Task allocation between UX specialists and developers in agile software development projects</i> também apresenta a seção de pesquisa e anterior ao desenvolvimento, contudo isso diz acerca dos papéis dentro do desenvolvimento de Scrum, como o título sugere, e não no usuário em si. Ambos são da abordagem de <b>Trabalho na Mesma Sprint</b>.</p>
+
+<p>Por fim, os artigos <i>Developing Mobile Healthcare Apps to Meet User Needs</i> e <i>Lean UX - The Next Generation of
+User-Centered Agile?</i> Como dizem nos seus resumos apresentam a abordagem Lean, como foco central. Os dois apresentam elementos de Pesquisa com Usuário no processo de desenvolvimento. O primeiro se utiliza de questionários e criação de personas, enquanto o segundo disserta sobre o Lean UX citando que a pesquisa com o usuário é parte integrante da abordagem.  </p>
+
+
+
+<h3>Avaliação de estudos</h3>
+
+A avaliação das abordagens foi realizada, adaptando a avaliação utilizada no trabalho Yanaze e Vanderlei (2021), onde são comparados alguns fatores que influenciam a escolha de uma abordagem para ser utilizada num projeto. A Tabela 6 apresenta a classificação.
+
+<table border="1">
+    <tr>
+        <td colspan="4" style="text-align: center"><b>Tabela 6: Avaliação das metodologias</b></td>   
+    </tr>
+    <tr>
+        <td style="text-align: center"><b>Critérios</b></td>
+        <td style="text-align: center"><b>Trabalho paralelo</b></td>
+        <td style="text-align: center"><b>Trabalho mesma Sprint</b></td>
+        <td style="text-align: center"><b>Lean UX</b></td>
+        
+    </tr>
+    <tr>
+        <td><b>Cronograma</b></td>
+        <td>Como nessa abordagem é abraçado a ideia da equipe de Design estar na frente da equipe de desenvolvimento, necessita que haja uma avaliação para identificar se a abordagem comporta o tempo delimitado para o projeto. </td>
+        <td>Mesmo que a abordagem também defina a ideia da equipe de design estar na frente da equipe de desenvolvimento, há uma maior flexibilidade, permitindo que trabalhem em sincronia.</td>
+        <td>Como a presença do usuário é constante, o cronograma se torna bastante adaptável, para comportar os diversos pontos de <i>Feedback</i>. </td>
+    </tr>
+    <tr>
+        <td><b>Agregação ao projeto</b></td>
+        <td>Introduz a prática de uma <i>Sprint</i> para a coleta de dados, que pode ser adaptada.</td>
+        <td>Além do conceito de uma <i>Sprint</i> focada na pesquisa com usuário, permite uma troca maior de informações entre os times do projeto.</td>
+        <td>Tem enfoque maior na interação com usuário e interseção entre as áreas do projeto.</td>
+    </tr>
+     <tr>
+       
+      <td><b>Problemas</b></td>
+      <td>Pelo fato das equipes de desenvolvimento e de Design trabalharem separadamente muitos problemas, principalmente oriundos da comunicação das equipes podem surgir. </td>
+      <td>Existe a probabilidade de surgirem problemas, principalmente vindos da adaptação do Scrum, para adicionar  histórias de usuário e outros elementos de UX.</td>
+      <td>Como a abordagem foca no resultado, problemas podem aparecer da falta de documentação que não é incentivada. </td>
+   </tr>
+</table>
+
+<h3>Resultados</h3>
+
+<p>Para a realização desse trabalho foram levantados artigos/estudos que mostrassem maneiras de conciliar a Experiência do usuário e <i>Scrum</i>, os artigos foram obtidos por meio de literatura de alguns trabalhos usados como referência do estudo, foi apresentado de forma muito sintetizada um resumo de cada estudo para situar o leitor sobre seu contexto. Após isso, os trabalhos foram classificados de acordo com as abordagens apresentadas no texto, que os classificam conforme o trabalho de UX é executado dentro do <i>Scrum</i>. Por fim, alguns pontos sobre as abordagens foram levantados para auxiliar a entender uma parte da adaptação necessária para utilizar os dois conceitos unidos.</p>
+
+<p>Como maioria dos estudos apresentados pontuam no texto, há um espaço quando se aborda esse tipo de integração na literatura, alguns trabalhos seguem a mesma ideia inicial de como realizar tal processo, mas se diferem em alguns quesitos durante a evolução. No decorrer da leitura percebe-se que as abordagens apresentam pontos fortes e fracos e que isto está muito ligado ao tipo de projeto onde estão inseridas. Mas também seria difícil compará-las diretamente por se tratarem de estudos que aplicam diferentes metodologias. </p>
+
+<p>Mesmo apresentando pontos divergentes as abordagens expõem maneiras coesas de realizar a integração dos dois conceitos, mas não podem ser levadas como "receitas de bolo" pelos interessados, as abordagens servem como norteadoras expondo dicas de como pode ser realizado o processo. </p>
+
+<p>Para responder à pergunta apresentada inicialmente, não pode-se listar as alterações a serem feitas, ainda não há uma fórmula para ser imposta. O que se pode dizer é que é necessário uma análise prévia das variáveis que impactam o projeto, desde de tempo de execução, equipe disponível, orçamento, temática do trabalho, perfil da equipe e da empresa. É válido levantar que o impacto é muito sentido dentro das <i>Sprint's</i> do projeto, sendo adicionando uma só para a realização do UX ou adicionando eventos de <i>Feedback</i> dentro dos diversos ciclos. E também é necessário a capacitação ou inclusão de capital humano preparado para realizar pesquisa com usuário.</p>
+
+
+<h2>Conclusão</h2>
+
+<p>Mesmo não apresentando uma solução definitiva para questão discutida, o estudo tem sua função informativa quanto ao assunto, apresentando pontos de discussão que devem ser levados em consideração na hora de adaptar o fluxo ágil para receber a Experiência do usuário pelas partes interessadas.</p>
+<p>O trabalho impacta diretamente desenvolvedores e empresas que tem como planos utilizar-se dos dois conceitos apresentados para melhorar a qualidade do produto final. É plausível se pensar no longo prazo onde essas alterações melhoram a qualidade das aplicações entregues ao usuário final, tornando a barreira entre as pessoas e a tecnologia menor e aumentando sua adesão a esse tipo de solução. </p>
+<p>É adequado levantar que o trabalho foi realizado de forma limitada, devido a pandemia do Covid-19 o tempo de realização do estudo foi reduzido refletindo diretamente do resultado final. Alguns conflitos de agenda vindos do autor também impactaram na redução do escopo  e nos resultados apresentados.</p>
+
+<p>Para trabalhos futuros, é possível a melhoria das etapas apresentadas, como realização de estado da arte respeitando uma metodologia de levantamento de estudos. Realizar o próprio estudo de comparação entre as abordagens utilizando um mesmo ambiente de desenvolvimento, almejando tornar a comparação mais próxima a realidade. É cabível desbravar os temas e pensar em novas maneiras de realizar a adaptação de forma diferente das apresentadas no trabalho. </p>
+<p>Por fim, o autor se sente contente com o resultado, a área de estudo apresentas muitos caminhos a serem explorados das mais diversas formas. </p>
+
+<h2>Referência</h2>
+<ul>
+	<li>KIKITAMARA, S.; NOVIYANTI, A. A. A conceptual model of user experience in<i>Scrum</i> practice. In: IEEE.2018 10th International Conference on InformationTechnology and Electrical Engineering (ICITEE). [S.l.], 2018. p. 581–586.</li>
+
+	<li>ABRAHAMSSON, P. et al. Agile software development methods: Review and analysis.arXiv preprint arXiv:1709.08439, 2017</li>
+
+	<li> ISO 9241-210, I.Human-Centered Design Processes for Interactive Systems. [S.l.]:ISO/IEC 9241-210, 2010</li>
+
+	<li>Agile Alliance.  Agile 101.https://www.agilealliance.org/agile101/.Acessado em 15/04/2021.</li>
+
+	<li>Ken Shwaber et al. Agile manifesto. In12 principles, 2001.</li>
+
+	<li>Interaction Design Foundation, User Experience (<i>UX</i>) Design, https://www.interaction-design.org/literature/topics/<i>UX</i>-design. Acessado em 19/04/2021</li>
+
+	<li>Interaction Design Foundation.The Basics of User Experience Design. InteractionDesign Foundation, 2018.</li>
+
+	<li>Wilkes, M. V. (1956). Automatic Digital Computers. New York: John Wiley & Sons. pp. 305 pages. QA76.W5 1956.</li>
+
+	<li>Prikladnicki, R, Miliani, F., Willi, R. Métodos Ágeis Para Desenvolvimento De Software. Bookman Companhia Ed, 2014. v. 1.</li>
+
+	<li>SOARES, M. S., Comparação entre Metodologias Ágeis e Tradicionais para o Desenvolvimento de Software, Minas Gerais, 2004, p1-6.</li>
+
+	<li>State of Agile Survey Results 2011 by Version One Inc. acessado 09 de maio de 2021 <https://stateofagile.com/#ufh-i-613555398-6th-annual-state-of-agile-report/7027494></li>
+
+	<li>Sabbagh, R., Scrum: Gestão ágil para projetos de sucesso, Casa do código, 2014, v1</li>
+
+	<li>Virgínia C. Et al. Estudo de Caso da Utilização de Scrum no Desenvolvimento Distribuído de Software, Pernambuco, 2010, p 1 -11.</li>
+
+	<li>Koscianski, A. and dos Santos Soares, M., Qualidade de Software, 2007, Novatec, v 2.</li>
+
+	<li>STAHL, Marimar M. Avaliação da qualidade de software educacional: relatório técnico do Programa de Engenharia de Sistemas e Computação. Rio de Janeiro: UFRJ, COPPE, 1988.</li>
+
+	<li>Rocha, A. Campos, G. AVALIAÇÃO DA QUALIDADE DE SOFTWARE EDUCACIONAL, Brasília, ano 12, n.57, jan./mar. 2012.</li>
+
+  <li>  FILHO, D. L. B.: Experiências com desenvolvimento ágil. Instituto de Matemática e Estatística da Universidade de São paulo, 2008</li>
+
+  <li>Schwaber, K. e Sutherland, J. The Scrum Guides.,2020, <https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf>. Consultado em 10 de maio de 2021 </li>
+
+  <li>FERREIRA, Ana Maria Jensen Ferreira da Costa. Contribuições da experiência do usuário para a arquitetura da informação. 2018. 163 f. Tese (Doutorado em Ciência da Informação) - Faculdade de Filosofia e Ciências, Universidade Estadual Paulista, Marília, 2018</li>
+
+  <li>LÁRUSDÓTTIR, M. K.; CAJANDER, Å.; GULLIKSEN, J. The big picture of ux is missing in scrum projects. In: Proceedings of the International Workshop on the Interplay between User Experience (UX) Evaluation and System Development (I-UxSED). [S.l.: s.n.], 2012. p. 49–54.</li>
+
+  <li>NORMAN, Donald A. Design emocional: por que adoramos (ou detestamos) os objetos do dia-a-dia. Rio de Janeiro: Rocco, 2008.</li>
+
+  <li>  BULEY, Leah. The user experience team of one: a research and design survival guide. New York: Rosenfeld Media, 2013.
+   </li>
+  <li>Suzanne Kieffer, Aissa Ghouti, and Benoit Macq. The agile ux development lifecycle:Combining formative usability and agile methods. 2017.</li>
+
+  <li>Tiago Silva, Angela Martin, Frank Maurer, and Milene Silveira. User-centereddesign and agile methods: a systematic review. In 2011 Agile Conference, pages77–86. IEEE, 2011</li>
+
+  <li> Lassi A Liikkanen, Harri Kilpiö, Lauri Svan, and Miko Hiltunen. Lean ux: the nextgeneration of user-centered agile development?  In Proceedings of the 8th NordicConference on Human-Computer Interaction: Fun, Fast, Foundational, pages 1095–1100. ACM, 2014.</li>
+
+  <li>Juan Feng. Developing mobile healthcare apps to meet user needs: Integrating lean user experience into agile software development processes.2014</li>
+
+  <li>Kati Kuusinen. Task allocation between ux specialists and developers in agile software development projects. InIFIP Conference on Human-Computer Interaction, pages27–44. Springer, 2015.</li>
+
+  <li>Lou Schwartz. Agile-user experience design: an agile and user-centered process? InProc. the 8th International Conference on Software Engineering Advances, pages346–351, 2013.</li>
+
+<li>YANAZE, Ana Flávia; VANDERLEI, Eduardo. Utilização de Scrum e Experiência de Usuário no Desenvolvimento de Software. 2021. 103 f. Trabalho de Conclusão de Curso –Curso de Bacharelado em Sistemas de Informação, Universidade Tecnológica Federal do Paraná. Curitiba, 2021.</li>
+</ul>
+</body>
+</html>
