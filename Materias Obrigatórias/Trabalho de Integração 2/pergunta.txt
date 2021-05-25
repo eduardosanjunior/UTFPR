@@ -1,0 +1,26 @@
+o que eu preciso adaptar no fluxo de desenvolvimento de software para excluir UX
+
+
+projeto de pesquisa, problema de pesquisa, escrita adoecimento.
+
+
+= Tema =
+
+Tendo em vista o cenário delimitado, '''qual(is) a(s) maneira(s) de conciliar Scrum e Experiência do usuário (UX)?
+= Problema de Domínio  =
+
+Com o passar do tempo na indústria de software a utilização de metodologias ágeis tem se tornando cada vez mais comum. Nesse âmbito, O Scrum tem tomado destaque por sua adaptabilidade as diversos cenários tecnológicos e ser popular entre os desenvolvedores. Em paralelo a Experiência do Usuário (UX), Acabou se mostrando um ótimo indicador na qualidade para aplicações. Um dos grandes obstáculos da industria é unir a Experiência do Usuário as etapas de desenvolvimento do Scrum, estabelecendo uma correlação entre ambos. Esse estudo tem como objetivo apresentar formas de trabalhar com ambos conceitos em conjunto, eleger uma abordagem específica e aplica-la no desenvolvimento de um software do Hemobanco.
+
+= Questão computacional =
+
+O que é necessário adaptar no fluxo de desenvolvimento de software em para incluir a experiência do usuário?
+
+
+= Objetivos =
+
+*Realizar um estado da arte de trabalhos  que conciliam as duas abordagens no cenário desejado;
+
+*Avaliar as abordagens apresentadas nos trabalhos segundo KIKITAMARA e NOVIYANTI(2018);
+
+* Avaliar a utilização conjunta das duas metodologias em relação a alguns indicadores (Qualidade da aplicação, prazo de entrega e atendimento dos requisitos)
+= Problematização =

@@ -1,0 +1,53 @@
+Merkle-
+
+-> tirar o DAINF da capa e contra capa
+
+-> Corrigir o resumo; (logo o abstract)
+
+-> Correções na introdução;
+
+-> Mudar a escrita dos objetivos especificos;
+
+-> scrum-> o termo Sprint aparece antes da definição;
+
+-> Link para imagens devem aparecer completamente;
+
+->Revisão de literatura correções em geral;
+
+-> Tirar a imagem do UX guarda chuva;
+
+-> Mudar a seção "Scrum e UX" para o começo do capitulo;
+
+-> Alterar as tabelas de texto para Quadro
+
+-> Correções na metodologia;
+
+Laudelino-
+
+-> Resumo e Abstract Método-faltou e Conclusões-faltou.
+
+-> No terceiro requisito fala em: Simular as etapas do Scrum
+ em conjunto com a Experiência do Usuário (UX) no
+ desenvolvimento de uma aplicação real. Senti falta de um 
+levantamento de Requisitos de Experiência do Usuário. 
+Por exemplo, o usuário deve-se sentir motivado para doar sangue.
+
+->Fundamentação Teórica: Na pág. 24, terceiro parágrafo, fala em 
+backlog, mas não explica o que é. Diga que se encontra na pág. 26, 
+dentro da seção 2.3.3.1
+
+->Metodologia:Não disse como as reuniões entre os membros da equipe 
+foram feitas, se presencialmente ou por aplicativos.
+
+->Na pág.45, tabela 3, está faltando o item “Mesma Sprint" em Observações.
+Senti falta de um cronograma com as datas em que ocorreram as reuniões e as outras etapas.
+
+-> Na pág. 60, dentro do Sprint 2, foi a primeira vez que vocês falaram do Backlog. Deveriam ter falado antes dele.
+
+->Na pág. 61, as figuras 22 e 23 estão trocadas. Pode se ver pelas histórias de usuário.
+
+->Na pág. 63, segundo parágrafo, por que escolheram a linguagem Angular?
+
+
+
+
